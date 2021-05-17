@@ -6,12 +6,14 @@ canvas=document.getElementById("myCanvas");
 ctx=canvas.getContext("2d");
 color="black";
 widthOfLine=1;
+radius=5;
 
 canvas.addEventListener("mousedown",myMouseDown);
 
 function myMouseDown(e){
     color=document.getElementById("Color").value;
     widthOfLine=document.getElementById("Width").value;
+    radius=document.getElementById("radius").value;
     mouseevent="MouseDown";
     console.log(mouseevent);
 }
@@ -26,9 +28,8 @@ function myMouseMove(e){
         ctx.beginPath();
         ctx.strokeStyle=color;
         ctx.lineWidth=widthOfLine;
-
         
-        ctx.arc(currentposX,currentposY,10,0,2*Math.PI);
+        ctx.arc(currentposX,currentposY,radius,0,2*Math.PI);
         ctx.stroke();
     }
     lastpoSX=currentposX;
